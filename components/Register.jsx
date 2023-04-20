@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Register() {
+function Register({ user }) {
   return (
     <Layout>
       <div className="js-container">
