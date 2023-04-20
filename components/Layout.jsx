@@ -1,10 +1,10 @@
 const React = require('react');
+const MainPage = require('./Main');
 
 function Layout({ children, user }) {
   return (
     <html lang="ru">
       <head>
-        {/* чтобы выводить нормально русский текст */}
         <meta charSet="UTF-8" />
         <title>English words</title>
         <link
@@ -16,6 +16,7 @@ function Layout({ children, user }) {
         <link rel="stylesheet" href="/css/style.css" />
       </head>
       <body>
+        <MainPage />
         <header>
           <ul className="nav justify-content-end">
             {user ? (
@@ -24,18 +25,7 @@ function Layout({ children, user }) {
                 <li className="nav-item">выход</li>
               </>
             ) : (
-              <>
-                <li className="nav-item">
-                  <a className="nav-link" href="/auth/register">
-                    Регистрация
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/auth/login">
-                    Вход
-                  </a>
-                </li>
-              </>
+              <></>
             )}
           </ul>
         </header>
