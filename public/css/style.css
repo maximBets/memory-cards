@@ -1,0 +1,8 @@
+.main-page {
+  display: flex;
+  justify-content: center;
+}
+
+.main-conteiner {
+  width: 100vh;
+}
