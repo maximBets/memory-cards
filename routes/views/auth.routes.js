@@ -1,18 +1,15 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const authRouter = require('express').Router();
-
+const LoginPage = require('../../components/LoginPage');
 const Register = require('../../components/Register');
-const Login = require('../../components/Login');
+
+authRouter.get('/login', (req, res) => {
+  res.send(res.renderComponent(LoginPage));
+});
 
 authRouter.get('/register', (req, res) => {
   const element = React.createElement(Register);
-  const html = ReactDOMServer.renderToStaticMarkup(element);
-  res.send(`<!DOCTYPE html>${html}`);
-});
-
-authRouter.get('/login', (req, res) => {
-  const element = React.createElement(Login);
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
 });
