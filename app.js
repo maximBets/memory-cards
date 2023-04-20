@@ -1,8 +1,10 @@
+require('dotenv').config();
 require('@babel/register');
 
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+const { PORT } = process.env;
 
 const mainRoute = require('./routes/views/main.routes');
 
@@ -21,6 +23,6 @@ app.use(renderComponent);
 app.use('/', mainRoute);
 app.use('/auth', authRouter);
 
-app.listen(3000, () => {
-  console.log('Сервер пашет на 3000');
+app.listen(PORT, () => {
+  console.log(`Сервер пашет на ${PORT}`);
 });
