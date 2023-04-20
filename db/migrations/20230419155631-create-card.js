@@ -15,14 +15,6 @@ module.exports = {
           key: 'id',
         },
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-      },
       eng_word: {
         allowNull: false,
         type: Sequelize.TEXT,
@@ -31,10 +23,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      learned: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
-      },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
