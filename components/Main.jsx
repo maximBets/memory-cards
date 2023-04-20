@@ -1,11 +1,11 @@
 const React = require('react');
+const Layout = require('./Layout');
 
 function Main() {
   return (
-    <nav>
-      <a href="auth/register">sign up</a>
-      <a href="auth/login">log in</a>
-    </nav>
+   <Layout>
+    <h1 className='main-title'>Memory Cards</h1>
+    </Layout>
   );
 }
 

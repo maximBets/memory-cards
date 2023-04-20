@@ -15,22 +15,33 @@ function Layout({ children, user }) {
         <link rel="stylesheet" href="/css/style.css" />
       </head>
       <body>
-        <header>
-          <ul className="nav justify-content-end">
+        <header className='bg-primary'>
             {user ? (
-              <>
-                <li className="nav-item">Привет, {user.login}!</li>
-                <li className="nav-item">
-                  <a href="/">Выход</a>
-                </li>
-              </>
+              <ul className="nav justify-content-end js-header p-3">
+              <nav className="nav js-nav">
+                <li className="nav-link disabled js-nav-link text-light mr-3">Привет, {user?.login}!</li>
+                <a className="btn btn-light mr-3" href="#">
+                  Личный кабинет
+                </a>
+                <a className="btn btn-outline-light" href="/logout">
+                  Выход
+                </a>
+              </nav>
+              </ul>
             ) : (
-              <div>
-                <a href="auth/register">Регистрация</a>
-                <a href="auth/login">Вход</a>
+              <ul className="nav justify-content-center js-header">
+              <div className='d-flex'>
+                <nav className="nav btn-nav">
+                  <a className="btn btn-light js-btn" href="/auth/register">
+                    Регистрация
+                  </a>
+                  <a className="btn btn-light js-btn" href="/auth/login">
+                    Вход
+                  </a>
+                </nav>
               </div>
+              </ul>
             )}
-          </ul>
         </header>
         {children}
       </body>

@@ -3,7 +3,7 @@ const Layout = require('./Layout');
 
 function LoginPage() {
   return (
-    <Layout>
+    <Layout >
       <div className="js-container">
       <h1>Авторизация</h1>
       <form id="login-form">
