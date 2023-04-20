@@ -19,7 +19,7 @@ form.addEventListener('submit', async (event) => {
   const result = await response.json();
 
   if (result.success) {
-    window.location.href = '/theme'
+    window.location.href = '/theme';
   } else {
     alert(result.massege);
   }

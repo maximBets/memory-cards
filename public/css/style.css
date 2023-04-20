@@ -1,7 +1,9 @@
-.container{
-  --bs-gutter-x: 40rem;
-  margin-top: 100px;
+.js-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
+
 .main-page {
   display: flex;
   justify-content: center;

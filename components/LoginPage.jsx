@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 function LoginPage() {
   return (
     <Layout>
+      <div className="js-container">
       <h1>Авторизация</h1>
       <form id="login-form">
         <div className="mb-3">
@@ -35,7 +36,7 @@ function LoginPage() {
           </button>
         </div>
       </form>
-
+      </div>
       <script src="/js/login.js" />
     </Layout>
   );
