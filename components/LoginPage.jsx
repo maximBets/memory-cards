@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Login() {
+function LoginPage() {
   return (
     <Layout>
       <h1>Авторизация</h1>
@@ -29,14 +29,16 @@ function Login() {
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Вход
-        </button>
+        <div className="d-grid gap-2">
+          <button className="btn btn-success" type="submit">
+            Вход
+          </button>
+        </div>
       </form>
 
-      <script src="/js/login.js" defer />
+      <script src="/js/login.js" />
     </Layout>
   );
 }
 
-module.exports = Login;
+module.exports = LoginPage;
