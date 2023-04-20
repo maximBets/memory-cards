@@ -42,7 +42,7 @@ authApiRouter.post('/login', async (req, res) => {
   const { login, password } = req.body;
   const user = await User.findOne({ where: { login } });
 
-  if (!user || user.password !== password) {
+  if (!user || !(await bcrypt.compare(password, user.password))) {
     res.json({
       success: false,
       massege: 'Такого пользователя нет или пароли не совпадают',

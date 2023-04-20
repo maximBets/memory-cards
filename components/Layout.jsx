@@ -1,5 +1,4 @@
 const React = require('react');
-const MainPage = require('./Main');
 
 function Layout({ children, user }) {
   return (
@@ -16,20 +15,24 @@ function Layout({ children, user }) {
         <link rel="stylesheet" href="/css/style.css" />
       </head>
       <body>
-        <MainPage />
         <header>
           <ul className="nav justify-content-end">
             {user ? (
               <>
                 <li className="nav-item">Привет, {user.login}!</li>
-                <li className="nav-item">выход</li>
+                <li className="nav-item">
+                  <a href="/">Выход</a>
+                </li>
               </>
             ) : (
-              <></>
+              <div>
+                <a href="auth/register">Регистрация</a>
+                <a href="auth/login">Вход</a>
+              </div>
             )}
           </ul>
         </header>
-        <div className="container">{children}</div>
+        {children}
       </body>
     </html>
   );
