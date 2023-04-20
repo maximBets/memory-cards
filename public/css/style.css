@@ -2,3 +2,11 @@
   --bs-gutter-x: 40rem;
   margin-top: 100px;
 }
+.main-page {
+  display: flex;
+  justify-content: center;
+}
+
+.main-conteiner {
+  width: 100vh;
+}

@@ -1,8 +1,14 @@
+require('dotenv').config();
 require('@babel/register');
 
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+const { PORT } = process.env;
+
+const mainRoute = require('./routes/views/main.routes');
+
+const authRouter = require('./routes/views/auth.routes');
 const renderComponent = require('./middlewares/renderComponent');
 
 const authApiRouter = require('./routes/views/auth.routes');
@@ -19,6 +25,10 @@ app.use(renderComponent);
 
 app.use('/auth', authApiRouter);
 
-app.listen(3000, () => {
-  console.log('Сервер запустился на 3000!');
+// подключаем роуты
+app.use('/', mainRoute);
+app.use('/auth', authRouter);
+
+app.listen(PORT, () => {
+  console.log(`Сервер пашет на ${PORT}`);
 });
