@@ -17,8 +17,40 @@ header {
   width: 100vh;
 }
 
+
+.themes-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.themes-title {
+  margin-bottom: 30px;
+}
+
+.themes-list {
+  list-style-type: none;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.themes-list li {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.card-title {
+  margin-bottom: 50px;
+}
+
+.card-body {
+  padding: 30px 0;
+
 .js-header {
-height: 80px;
+  height: 80px;
 }
 
 .js-nav {
@@ -27,6 +59,7 @@ height: 80px;
   justify-content: space-evenly;
   width: 500px;
 }
+
 .js-nav-link {
   color: rgb(255, 255, 255);
 }
@@ -52,5 +85,4 @@ height: 80px;
   align-content: center;
   width: 300px;
   justify-content: space-between;
-  
 }
