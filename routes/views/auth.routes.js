@@ -5,13 +5,26 @@ const LoginPage = require('../../components/LoginPage');
 const Register = require('../../components/Register');
 
 authRouter.get('/login', (req, res) => {
-  res.send(res.renderComponent(LoginPage));
+  console.log(req.session.userId);
+  try {
+    if (req.session.userId) {
+      return res.redirect('/themes');
+    }
+    res.send(res.renderComponent(LoginPage));
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 authRouter.get('/register', (req, res) => {
-  const element = React.createElement(Register);
-  const html = ReactDOMServer.renderToStaticMarkup(element);
-  res.send(`<!DOCTYPE html>${html}`);
+  try {
+    if (req.session.userId) {
+      return res.redirect('/themes');
+    }
+    res.send(res.renderComponent(Register));
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 authRouter.get('/logout', (req, res) => {

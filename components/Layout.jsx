@@ -9,23 +9,36 @@ function Layout({ children, user }) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossOrigin="anonymous" />
         <link rel="stylesheet" href="/css/style.css" />
       </head>
+
       <body className="p-3 mb-2 text-emphasis-secondary">
         <header>
           <ul className="nav justify-content-end">
             {user ? (
-              <>
-                <li className="nav-item">Привет, {user.login}!</li>
-                <li className="nav-item">
-                  <a href="/">Выход</a>
-                </li>
-              </>
+              <ul className="nav justify-content-end js-header p-3">
+              <nav className="nav js-nav">
+                <li className="nav-link disabled js-nav-link text-light mr-3">Привет, {user?.login}!</li>
+                <a className="btn btn-light mr-3" href="#">
+                  Личный кабинет
+                </a>
+                <a className="btn btn-outline-light" href="/logout">
+                  Выход
+                </a>
+              </nav>
+              </ul>
             ) : (
-              <div>
-                <a href="auth/register">Регистрация</a>
-                <a href="auth/login">Вход</a>
+              <ul className="nav justify-content-center js-header">
+              <div className='d-flex'>
+                <nav className="nav btn-nav">
+                  <a className="btn btn-light js-btn" href="/auth/register">
+                    Регистрация
+                  </a>
+                  <a className="btn btn-light js-btn" href="/auth/login">
+                    Вход
+                  </a>
+                </nav>
               </div>
+              </ul>
             )}
-          </ul>
         </header>
         {children}
       </body>
