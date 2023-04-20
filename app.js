@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 require('@babel/register');
 
 const express = require('express');
@@ -27,6 +28,7 @@ app.use(renderComponent);
 
 // подключаем роуты
 app.use('/', mainRoute);
+app.use('/api/auth', authApiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', authApiRouter);
 
