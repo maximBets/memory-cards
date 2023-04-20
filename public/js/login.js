@@ -7,6 +7,7 @@ form.addEventListener('submit', async (event) => {
   const { login, password } = formLog;
 
   const response = await fetch('/api/auth/login', {
+    method: 'POST',
     body: JSON.stringify({
       login: login.value,
       password: password.value,
@@ -19,5 +20,7 @@ form.addEventListener('submit', async (event) => {
 
   if (result.success) {
     window.location.href = '/theme'
+  } else {
+    alert(result.massege);
   }
 });

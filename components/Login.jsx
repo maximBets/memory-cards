@@ -34,7 +34,7 @@ function Login() {
         </button>
       </form>
 
-      <script src="/js/login.js" />
+      <script src="/js/login.js" defer />
     </Layout>
   );
 }
