@@ -21,7 +21,7 @@ form.addEventListener('submit', async (event) => {
   //  статус ответа < 400
   if (response.ok) {
     // редирект на главную
-    window.location.href = '/';
+    window.location.href = '/theme';
   } else {
     // произошла ошибка, выводим сообщение
     const result = await response.json();
