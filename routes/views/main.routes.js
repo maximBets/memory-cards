@@ -25,16 +25,10 @@ route.get('/themes', async (req, res) => {
   res.send(res.renderComponent(ThemesPage, { themes, progressInfo }));
 });
 
-route.get('/cards', async (req, res) => {
-  const cards = await Card.findAll({ limit: 10 });
-
-  // const progressInfo = await Card.findAll({ attributes: ['id', 'theme_id', 'learned'] });
-  // const dataForProgress = [];
-  // // убираем лишнее
-  // progressInfo.forEach((element) => {
-  //   dataForProgress.push({ id: element.id, theme_id: element.theme_id, learned: element.learned });
-  // });
-  // // ...
+route.get('/cards/:id', async (req, res) => {
+  const themeId = req.params.id;
+  const cards = await Card.findAll({ where: { theme_id: themeId } });
+  console.log('cards', cards);
 
   res.send(res.renderComponent(CardsPage, { cards }));
 });
