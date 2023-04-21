@@ -3,7 +3,7 @@ const Layout = require('./Layout');
 
 function Register({ user }) {
   return (
-    <Layout>
+    <Layout user={user}>
       <div className="js-container">
         <h1>Регистрация</h1>
         <form id="register-form">
