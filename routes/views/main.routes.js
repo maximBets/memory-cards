@@ -2,6 +2,7 @@ const route = require('express').Router();
 const { where } = require('sequelize');
 const Main = require('../../components/Main');
 const ThemesPage = require('../../components/ThemesPage');
+const CardsPage = require('../../components/CardsPage');
 const { Theme, Card } = require('../../db/models');
 
 route.get('/', (req, res) => {
@@ -22,6 +23,20 @@ route.get('/themes', async (req, res) => {
   // ...
 
   res.send(res.renderComponent(ThemesPage, { themes, progressInfo }));
+});
+
+route.get('/cards', async (req, res) => {
+  const cards = await Card.findAll({ limit: 10 });
+
+  // const progressInfo = await Card.findAll({ attributes: ['id', 'theme_id', 'learned'] });
+  // const dataForProgress = [];
+  // // убираем лишнее
+  // progressInfo.forEach((element) => {
+  //   dataForProgress.push({ id: element.id, theme_id: element.theme_id, learned: element.learned });
+  // });
+  // // ...
+
+  res.send(res.renderComponent(CardsPage, { cards }));
 });
 
 module.exports = route;
