@@ -109,3 +109,8 @@ header {
   width: 300px;
   justify-content: space-between;
 }
+
+.addFormDiv {
+  display: flex;
+  justify-content: center;
+}
