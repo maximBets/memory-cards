@@ -1,5 +1,3 @@
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
 const authRouter = require('express').Router();
 const LoginPage = require('../../components/LoginPage');
 const Register = require('../../components/Register');

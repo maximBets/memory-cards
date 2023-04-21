@@ -110,6 +110,11 @@ header {
   justify-content: space-between;
 }
 
+.addFormDiv {
+  display: flex;
+  justify-content: center;
+}
+
 /* Flip Card */
 .flip-card {
   /* context for child positioning */
