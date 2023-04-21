@@ -3,6 +3,7 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Theme extends Model {
     static associate({ Card }) {
+      // у одной темы много карточек
       this.hasMany(Card, { foreignKey: 'theme_id' });
     }
   }
@@ -17,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Theme',
-    },
+    }
   );
   return Theme;
 };

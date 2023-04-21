@@ -3,8 +3,13 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Card extends Model {
     static associate({ Theme, User }) {
+      // Один карточка принадлежит одной теме
       this.belongsTo(Theme, { foreignKey: 'theme_id' });
-      this.belongsTo(User, { foreignKey: 'user_id' });
+      // Одна карточка может быть у разных User
+      this.belongsToMany(User, {
+        foreignKey: 'card_id',
+        through: 'UserCards',
+      });
     }
   }
   Card.init(
@@ -16,14 +21,6 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
         },
       },
-      user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
-      },
       eng_word: {
         allowNull: false,
         type: DataTypes.TEXT,
@@ -32,15 +29,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.TEXT,
       },
-      learned: {
-        allowNull: false,
-        type: DataTypes.BOOLEAN,
-      },
     },
     {
       sequelize,
       modelName: 'Card',
-    },
+    }
   );
   return Card;
 };
