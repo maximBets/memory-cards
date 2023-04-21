@@ -3,7 +3,7 @@ const { where } = require('sequelize');
 const Main = require('../../components/Main');
 const ThemesPage = require('../../components/ThemesPage');
 const CardsPage = require('../../components/CardsPage');
-const { Theme, Card } = require('../../db/models');
+const { Theme, Card, UserCard } = require('../../db/models');
 
 route.get('/', (req, res) => {
   res.send(res.renderComponent(Main, {}));
@@ -29,8 +29,10 @@ route.get('/cards/:id', async (req, res) => {
   const themeId = req.params.id;
   const cards = await Card.findAll({ where: { theme_id: themeId } });
   console.log('cards', cards);
+  const { userId } = req.session;
+  const userCards = await UserCard.findAll({ where: { user_id: userId } });
 
-  res.send(res.renderComponent(CardsPage, { cards }));
+  res.send(res.renderComponent(CardsPage, { cards, userCards }));
 });
 
 module.exports = route;
