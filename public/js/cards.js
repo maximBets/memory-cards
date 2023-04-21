@@ -22,7 +22,6 @@ container.addEventListener('click', async (event) => {
     // console.log(json);
     if (json.success) {
       btn.textContent = 'Выучено';
-      btn.style.background = 'green';
       btn.disabled = true;
     } else console.log(json.message);
 
