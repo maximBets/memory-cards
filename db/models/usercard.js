@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
         },
       },
+      card_status: {
+        type: DataTypes.BOOLEAN,
+      },
     },
     {
       sequelize,

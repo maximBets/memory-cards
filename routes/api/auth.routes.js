@@ -36,18 +36,18 @@ authApiRouter.post('/register', async (req, res) => {
     .json({ success: false, message: 'Вы успешно зарегестрировались' });
 });
 
-
-
 authApiRouter.post('/login', async (req, res) => {
   const { login, password } = req.body;
   const user = await User.findOne({ where: { login } });
+
+  console.log(user);
 
   if (!user || !(await bcrypt.compare(password, user.password))) {
     res.json({
       success: false,
       massege: 'Такого пользователя нет или пароли не совпадают',
     });
-    return
+    return;
   }
 
   req.session.userId = user.id;
@@ -55,5 +55,4 @@ authApiRouter.post('/login', async (req, res) => {
   res.json({ success: true });
 });
 
-module.exports = authApiRouter
-
+module.exports = authApiRouter;
