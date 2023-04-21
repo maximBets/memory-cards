@@ -1,9 +1,11 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function ThemesPage({ themes = [] }) {
+function ThemesPage({ themes = [], progressInfo, user }) {
+  // здесь будет функция для подсчета ширины прогресс бара и процентов
+  const getWidth = () => ['150px', 80];
   return (
-    <Layout>
+    <Layout user={user}>
       <div className="themes-container">
         <h1 className="themes-title text-white">Темы</h1>
         <ul className="themes-list d-flex flex-wrap">
@@ -12,6 +14,11 @@ function ThemesPage({ themes = [] }) {
               <div className="card bg-info-subtle" style={{ width: '18rem' }}>
                 <div className="card-body">
                   <h5 className="card-title text-white fs-3">{theme.theme_title}</h5>
+                  <h6 className="card-progress-title">Прогресс по теме: {`${getWidth()[1]}`}%</h6>
+                  <div className="card-progress-common">
+                    <div className="progress-bar" style={{ width: '200px' }}></div>
+                    <div className="progress-bar" style={{ backgroundColor: 'lightgreen', width: `${getWidth()[0]}` }}></div>
+                  </div>
                   <a href="#" className="btn btn-outline-primary btn-lg fw-bolder">
                     Перейти к изучению
                   </a>
