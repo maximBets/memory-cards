@@ -2,7 +2,6 @@ const React = require('react');
 const Layout = require('./Layout');
 
 function CardsPage({ cards = [], user }) {
-  const learned = false;
   return (
     <Layout user={user}>
       <div className="container js-card-container">
@@ -13,22 +12,20 @@ function CardsPage({ cards = [], user }) {
                 <div className="flip-card__front">
                   <h2 className="flip-card__content">{card.eng_word}</h2>
                 </div>
-                <button type="button" className="flip-card__button js-toggleButton" data-aria-controls="card-back-1">
+                <button
+                  type="button"
+                  className="flip-card__button js-toggleButton"
+                  data-aria-controls="card-back-1">
                   <span className="screen-reader-text" />
                 </button>
                 <div id="card-back-1" className="flip-card__back">
                   <h2 className="flip-card__content">{card.rus_word}</h2>
                 </div>
               </div>
-              {learned ? (
-                <button type="button" className="btn btn-outline-primary btn-lg fw-bolder">
-                  Изучено
-                </button>
-              ) : (
-                <button type="button" data-card-id={card.id} className="btn-add-to-learn btn btn-outline-primary btn-lg fw-bolder">
-                  Добавить на изучение
-                </button>
-              )}
+
+              <button type="button" data-card-id={card.id} className="btn-add">
+                Добавить на изучение
+              </button>
             </li>
           ))}
         </ul>
@@ -40,3 +37,4 @@ function CardsPage({ cards = [], user }) {
 }
 
 module.exports = CardsPage;
+

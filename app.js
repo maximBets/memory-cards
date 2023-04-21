@@ -29,9 +29,9 @@ app.use(renderComponent);
 
 // подключаем роуты
 app.use('/', mainRoute);
-app.use('/api/auth', authApiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', authApiRouter);
+app.use('/api/add-card', cardsApiRouter);
 app.use('/personal', personalRouter);
 app.use('/api/personal', personalApiRouter);
 app.use('/api/cards', cardsApiRouter);

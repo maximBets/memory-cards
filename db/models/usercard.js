@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        primaryKey: true,
         // внешний ключ связан с таблицей Users
         references: {
           model: 'Users',
@@ -25,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       card_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        primaryKey: true,
         // внешний ключ связан с таблицей Cards
         references: {
           model: 'Cards',
