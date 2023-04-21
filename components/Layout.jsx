@@ -10,24 +10,23 @@ function Layout({ children, user }) {
         <link rel="stylesheet" href="/css/style.css" />
       </head>
 
-      <body className="p-3 mb-2 text-emphasis-secondary">
-        <header>
-          <ul className="nav justify-content-end">
-            {user ? (
-              <ul className="nav justify-content-end js-header p-3">
+      <body className="text-emphasis-secondary">
+        <header className="bg-primary">
+          {user ? (
+            <ul className="nav justify-content-end js-header p-3">
               <nav className="nav js-nav">
                 <li className="nav-link disabled js-nav-link text-light mr-3">Привет, {user?.login}!</li>
                 <a className="btn btn-light mr-3" href="#">
                   Личный кабинет
                 </a>
-                <a className="btn btn-outline-light" href="/logout">
+                <a className="btn btn-outline-light" href="/auth/logout">
                   Выход
                 </a>
               </nav>
-              </ul>
-            ) : (
-              <ul className="nav justify-content-center js-header">
-              <div className='d-flex'>
+            </ul>
+          ) : (
+            <ul className="nav justify-content-center js-header">
+              <div className="d-flex">
                 <nav className="nav btn-nav">
                   <a className="btn btn-light js-btn" href="/auth/register">
                     Регистрация
@@ -37,8 +36,8 @@ function Layout({ children, user }) {
                   </a>
                 </nav>
               </div>
-              </ul>
-            )}
+            </ul>
+          )}
         </header>
         {children}
       </body>
