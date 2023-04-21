@@ -7,7 +7,7 @@ function CardsPage({ cards = [], user, userCards = [] }) {
     <Layout user={user}>
       <div className="container js-card-container">
         <ul className="themes-list d-flex flex-wrap">
-          {cards.map((card) => {
+        {cards.map((card) => {
             const btn = cardIds.includes(card.id) ? (
               <button
                 disabled="true"
@@ -24,31 +24,31 @@ function CardsPage({ cards = [], user, userCards = [] }) {
                 Добавить на изучение
               </button>
             );
-            return (
-              <li key={card.id}>
-                <div
-                  className=" flip-card js-toggleWrapper"
-                  tabIndex="-1"
-                  style={{ width: '18rem' }}>
-                  <div className="flip-card__front">
-                    <h2 className="flip-card__content">{card.eng_word}</h2>
-                  </div>
-                  <button
-                    type="button"
-                    className="flip-card__button js-toggleButton"
-                    data-aria-controls="card-back-1">
-                    <span className="screen-reader-text" />
-                  </button>
-                  <div id="card-back-1" className="flip-card__back">
-                    <h2 className="flip-card__content">{card.rus_word}</h2>
-                  </div>
+        (<li key={card.id}>
+              <div className=" flip-card js-toggleWrapper" tabIndex="-1" style={{ width: '18rem' }}>
+                <div className="flip-card__front">
+                  <h2 className="flip-card__content">{card.eng_word}</h2>
                 </div>
-                {btn}
-              </li>
+                <button type="button" className="flip-card__button js-toggleButton" data-aria-controls="card-back-1">
+                  <span className="screen-reader-text" />
+                </button>
+                <div id="card-back-1" className="flip-card__back">
+                  <h2 className="flip-card__content">{card.rus_word}</h2>
+                </div>
+              </div>
+              {btn}
+             </li>
+             )}
             );
           })}
         </ul>
       </div>
+        
+        
+
+
+
+
 
       <script src="/js/cards.js" />
     </Layout>
