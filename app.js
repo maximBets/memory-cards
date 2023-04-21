@@ -8,13 +8,13 @@ const session = require('express-session');
 
 const { PORT } = process.env;
 
-
 const mainRoute = require('./routes/views/main.routes');
 const authRouter = require('./routes/views/auth.routes');
 const authApiRouter = require('./routes/api/auth.routes');
 const sessionConfig = require('./config/session');
 const getUser = require('./middlewares/getUser');
 const renderComponent = require('./middlewares/renderComponent');
+const cardsApiRouter = require('./routes/api/cardApi.routes');
 
 const app = express();
 
@@ -25,12 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(getUser);
 app.use(renderComponent);
 
-
 // подключаем роуты
 app.use('/', mainRoute);
 app.use('/api/auth', authApiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', authApiRouter);
+app.use('/api/cards', cardsApiRouter);
 
 app.listen(PORT, () => {
   console.log(`Сервер пашет на ${PORT}`);
