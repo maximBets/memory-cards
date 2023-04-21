@@ -12,10 +12,7 @@ function CardsPage({ cards = [], user }) {
                 <div className="flip-card__front">
                   <h2 className="flip-card__content">{card.eng_word}</h2>
                 </div>
-                <button
-                  type="button"
-                  className="flip-card__button js-toggleButton"
-                  data-aria-controls="card-back-1">
+                <button type="button" className="flip-card__button js-toggleButton" data-aria-controls="card-back-1">
                   <span className="screen-reader-text" />
                 </button>
                 <div id="card-back-1" className="flip-card__back">
@@ -23,8 +20,8 @@ function CardsPage({ cards = [], user }) {
                 </div>
               </div>
 
-              <button type="button" data-card-id={card.id} className="btn-add">
-                Добавить на изучение
+              <button type="button " data-card-id={card.id} className="btn-add btn btn-outline-light">
+                Отметить как выученное
               </button>
             </li>
           ))}
@@ -37,4 +34,3 @@ function CardsPage({ cards = [], user }) {
 }
 
 module.exports = CardsPage;
-
