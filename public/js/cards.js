@@ -21,9 +21,8 @@ container.addEventListener('click', async (event) => {
     // смотрим, что там вернулось
     // console.log(json);
     if (json.success) {
-      btn.textContent = 'Изучено';
-      btn.disabled = 'true';
-
+      btn.textContent = 'Выучено';
+      btn.disabled = true;
     } else console.log(json.message);
 
     // обновить страницу без перезагрузки
