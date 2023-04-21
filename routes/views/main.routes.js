@@ -13,11 +13,11 @@ route.get('/themes', async (req, res) => {
   // !Здесь предполагается написание кода, который будет высчитывать количество выученных слов (learned: true)
   // !для каждой из тем, чтобы передать их в ThemePage
   // достаём всю информацию со столбцов id и learned
-  const progressInfo = await Card.findAll({ attributes: ['id', 'theme_id', 'learned'] });
+  const progressInfo = await Card.findAll({ attributes: ['id', 'theme_id'] });
   const dataForProgress = [];
   // убираем лишнее
   progressInfo.forEach((element) => {
-    dataForProgress.push({ id: element.id, theme_id: element.theme_id, learned: element.learned });
+    dataForProgress.push({ id: element.id, theme_id: element.theme_id });
   });
   // ...
 
