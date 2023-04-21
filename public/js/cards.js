@@ -23,6 +23,7 @@ container.addEventListener('click', async (event) => {
     if (json.success) {
       btn.textContent = 'Изучено';
       btn.disabled = 'true';
+
     } else console.log(json.message);
 
     // обновить страницу без перезагрузки
