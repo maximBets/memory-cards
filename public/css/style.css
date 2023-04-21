@@ -110,6 +110,11 @@ header {
   justify-content: space-between;
 }
 
+.addFormDiv {
+  display: flex;
+  justify-content: center;
+}
+
 /* Flip Card */
 .flip-card {
   /* context for child positioning */
@@ -150,6 +155,7 @@ header {
   background-color: #032830;
   color: white;
   border-radius: 8px;
+  border: 1px solid white;
 }
 
 .flip-card__back {
@@ -157,6 +163,7 @@ header {
   visibility: hidden;
   background-color: #fff;
   transition-delay: 0s;
+
   color: black;
 }
 
@@ -184,17 +191,8 @@ header {
   top: -0.25rem; /* account for border */
   cursor: pointer;
   z-index: 99;
-  /* border: 0.25rem solid transparent; */
   transition: 0.25s border-color;
 }
-
-/* .flip-card__button:focus {
-  border-color: #383838;
-} */
-
-/* .is-flipped .flip-card__button:focus {
-  border-color: #ffc915;
-} */
 
 .flip-card__button:focus:not(:focus-visible) {
   border-color: transparent !important;

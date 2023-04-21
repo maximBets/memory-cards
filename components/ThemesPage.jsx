@@ -3,7 +3,11 @@ const Layout = require('./Layout');
 
 function ThemesPage({ themes = [], progressInfo, user }) {
   // здесь будет функция для подсчета ширины прогресс бара и процентов
-  const getWidth = () => ['150px', 80];
+  function randomInteger(min, max) {
+    let rand = min - 0.5 + Math.random() * (max - min + 1);
+    return Math.round(rand);
+  }
+  const getWidth = () => [`${randomInteger(1, 200)}px`, 70];
   return (
     <Layout user={user}>
       <div className="themes-container">
@@ -19,7 +23,7 @@ function ThemesPage({ themes = [], progressInfo, user }) {
                     <div className="progress-bar" style={{ width: '200px' }}></div>
                     <div className="progress-bar" style={{ backgroundColor: 'lightgreen', width: `${getWidth()[0]}` }}></div>
                   </div>
-                  <a href="#" className="btn btn-outline-primary btn-lg fw-bolder">
+                  <a href={`/cards/${theme.id}`} className="btn btn-outline-primary btn-lg fw-bolder">
                     Перейти к изучению
                   </a>
                 </div>
