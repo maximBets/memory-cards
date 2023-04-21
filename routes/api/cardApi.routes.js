@@ -11,11 +11,13 @@ cardApiRouter.post('/:id', async (req, res) => {
     await UserCard.create({
       user_id: req.session.userId,
       card_id: cardId,
+      card_status: true,
     });
 
     // зависит от реализации, что мы отправляем в json
     res.json({ success: true, message: 'Добавлено' });
   } catch (error) {
+    console.error(error);
     res.json({ success: false, message: error.message });
   }
 });
