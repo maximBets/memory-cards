@@ -16,7 +16,7 @@ function Layout({ children, user }) {
             <ul className="nav justify-content-end js-header p-3">
               <nav className="nav js-nav">
                 <li className="nav-link disabled js-nav-link text-light mr-3">Привет, {user?.login}!</li>
-                <a className="btn btn-light mr-3" href="#">
+                <a className="btn btn-light mr-3" href="/personal/add-card">
                   Личный кабинет
                 </a>
                 <a className="btn btn-outline-light" href="/auth/logout">
