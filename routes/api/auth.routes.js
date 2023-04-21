@@ -12,7 +12,7 @@ authApiRouter.post('/register', async (req, res) => {
     res.status(403).json({ success: false, message: 'Пароли не совпадают' });
   }
 
-  // проверяем, что в БД нет такого пользователя
+  // проверяем, Layoutто в БД нет такого пользователя
   const existUser = await User.findOne({ where: { login } });
   if (existUser) {
     res
