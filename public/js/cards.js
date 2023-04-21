@@ -1,25 +1,27 @@
-
 const container = document.querySelector('.js-card-container');
 
 // делегируем обработчик событий на весь контейнер, где у нас создаются card
 container.addEventListener('click', async (event) => {
   // проверяем, на каком именно элементе сработал click через массив classList, который содержит классы
-  if (event.target.classList.contains('js-add-btn')) {
+  if (event.target.classList.contains('btn-add')) {
     const btn = event.target;
 
-    const { id } = btn.dataset;
+    const id = btn.dataset.cardId;
+    // console.log(123);
+    // console.log(btn.dataset.cardId);
+    // console.log(123);
 
     // сделать запрос на добавление в БД
-    const response = await fetch(`/api/card/${id}`, {
+    const response = await fetch(`/api/add-card/${id}`, {
       method: 'POST',
     });
 
     const json = await response.json(); //  чтобы достать тело ответа
 
     // смотрим, что там вернулось
-    console.log(json);
+    // console.log(json);
     if (json.success) {
-      btn.textContent = 'добавлено';
+      btn.textContent = 'добавлено и изучено';
       btn.style.background = 'green';
     } else console.log(json.message);
 
@@ -83,4 +85,3 @@ addToLearnButton.forEach((btn) => {
     toggle.init();
   }
 })();
-

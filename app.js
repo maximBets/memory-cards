@@ -30,7 +30,7 @@ app.use('/', mainRoute);
 app.use('/api/auth', authApiRouter);
 app.use('/auth', authRouter);
 app.use('/api/auth', authApiRouter);
-app.use('/api/cards', cardsApiRouter);
+app.use('/api/add-card', cardsApiRouter);
 
 app.listen(PORT, () => {
   console.log(`Сервер пашет на ${PORT}`);

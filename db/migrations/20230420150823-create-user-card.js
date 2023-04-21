@@ -3,9 +3,16 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('UserCards', {
       // удалили id
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
         // внешний ключ связан с таблицей Users
         references: {
           model: 'Users',
@@ -15,6 +22,7 @@ module.exports = {
       card_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
         // внешний ключ связан с таблицей Cards
         references: {
           model: 'Cards',

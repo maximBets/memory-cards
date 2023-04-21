@@ -4,12 +4,15 @@ const { UserCard } = require('../../db/models');
 
 // добавляет существующую карточку в User
 cardApiRouter.post('/:id', async (req, res) => {
-  const id = Number(req.params.id);
+  const cardId = Number(req.params.id);
+  console.log(cardId);
   try {
+    console.log(req.session.userId);
     await UserCard.create({
       user_id: req.session.userId,
-      card_id: id,
+      card_id: cardId,
     });
+
     // зависит от реализации, что мы отправляем в json
     res.json({ success: true, message: 'Добавлено' });
   } catch (error) {
