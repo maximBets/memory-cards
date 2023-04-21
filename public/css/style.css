@@ -90,7 +90,9 @@ header {
 .main-title {
   display: flex;
   justify-content: space-around;
-  font-size: 60px;
+  font-size: 100px;
+  font-family: Roboto;
+  color: white;
   height: 300px;
   align-items: center;
 }
@@ -220,4 +222,16 @@ header {
 
 .btn-add-to-learn {
   z-index: 100;
+}
+
+.bg-img {
+  margin-top: -50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://s1.1zoom.me/b5050/522/364679-svetik_1920x1080.jpg');
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
