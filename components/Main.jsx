@@ -3,8 +3,8 @@ const Layout = require('./Layout');
 
 function Main() {
   return (
-   <Layout>
-    <h1 className='main-title'>Memory Cards</h1>
+    <Layout>
+      <h1 className="main-title">Memory Cards</h1>
     </Layout>
   );
 }
